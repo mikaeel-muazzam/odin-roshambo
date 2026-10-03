@@ -1,8 +1,7 @@
-console.log("Hello World");
+console.log("Use 'playGame()' to start the game!");
 // get computer choice
 function getComputerChoice() {
     const rand = Math.floor(Math.random()*3); //generate a random integer from 0-2 (both inclusive)
-    // console.log(rand);
     let choice;
     switch(rand) { //select choice based on value of rand
         case 0:
@@ -14,7 +13,6 @@ function getComputerChoice() {
         case 2:
             choice = "scissors"
     }
-    // console.log("Computer: " + choice);
     return choice;
 }
 
@@ -22,21 +20,17 @@ function getComputerChoice() {
 function getHumanChoice() {
     let choice;
     choice = prompt("Choose rock, paper, or scissors"); //prompts the user to type in their choice
-    // console.log("Human: " + choice);
     return choice;
 }
 
 //play an entire game
 function playGame() {
-    // console.log("start of game");
-
     // score declarations
     let humanScore = 0;
     let computerScore = 0;
 
     //play a single round
     function playRound(humanChoice, computerChoice) {
-        // console.log("start of round");
         humanChoice = humanChoice.toLowerCase(); //normalize to lowercase so humanChoice is case insensitive
 
         let winner;
@@ -61,9 +55,7 @@ function playGame() {
             } else {
                 winner = "computer";
             }
-        }
-        // console.log("Winner:" + winner);
-        
+        }     
         //print a win message based on winner
         let message;
         if (winner === "tie") {
@@ -79,9 +71,7 @@ function playGame() {
     }
 
     //game loop
-    for(let i = 1; i <= 5; i++) {
-        // console.log("iteration" + i);
-        
+    for(let i = 1; i <= 5; i++) {        
         //get choices
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
@@ -89,10 +79,6 @@ function playGame() {
         //play a round
         playRound(humanChoice, computerChoice)
     }
-
-    //print final scores
-    // console.log("Human score: " + humanScore);
-    // console.log("Computer score: " + computerScore);
 
     //find final winner
     let winner;
