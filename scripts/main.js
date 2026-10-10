@@ -18,6 +18,7 @@ function getComputerChoice() {
 //play a single round
 function playRound(humanChoice, computerChoice) {
     let winner;
+    let finalWinner;
     //find the winner
     if(humanChoice === computerChoice) {
         winner = "tie";
@@ -55,7 +56,11 @@ function playRound(humanChoice, computerChoice) {
     humanScoreHolder.textContent = humanScore;
     computerScoreHolder.textContent = computerScore;
 
-
+    //check win condition and find winner
+    if (humanScore >= 5 || computerScore >= 5) {
+        finalWinner = findFinalWinner(humanScore, computerScore);
+        gameResult.textContent = `${finalWinner} wins the match`;
+    }
 }
 
 //find final winner
@@ -84,6 +89,7 @@ let computerScore = 0;
 //query selection and event listeners
 const btns = document.querySelectorAll("button");
 const roundResult = document.querySelector(".roundResult");
+const gameResult = document.querySelector(".gameResult");
 const humanScoreHolder = document.querySelector(".humanScore");
 const computerScoreHolder = document.querySelector(".computerScore");
 
