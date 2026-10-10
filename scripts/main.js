@@ -15,13 +15,6 @@ function getComputerChoice() {
     return choice;
 }
 
-//get human choice
-function getHumanChoice() {
-    let choice;
-    choice = prompt("Choose rock, paper, or scissors"); //prompts the user to type in their choice
-    return choice;
-}
-
 //play a single round
 function playRound(humanChoice, computerChoice) {
     let winner;
@@ -58,7 +51,11 @@ function playRound(humanChoice, computerChoice) {
         message = `You lose! ${humanChoice} gets beaten by ${computerChoice}`
         computerScore++;
     }
-    console.log(message);
+    roundResult.textContent = message;
+    humanScoreHolder.textContent = humanScore;
+    computerScoreHolder.textContent = computerScore;
+
+
 }
 
 //find final winner
@@ -81,10 +78,16 @@ function buttonClicked (event) {
     playRound(humanChoice, computerChoice);
 }
 //init
-let humanScore = computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 //query selection and event listeners
 const btns = document.querySelectorAll("button");
+const roundResult = document.querySelector(".roundResult");
+const humanScoreHolder = document.querySelector(".humanScore");
+const computerScoreHolder = document.querySelector(".computerScore");
+
+
 btns.forEach((btn) => {
     btn.addEventListener("click", (buttonClicked))
 })
