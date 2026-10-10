@@ -70,16 +70,6 @@ function playGame() {
         console.log(message);
     }
 
-    //game loop
-    for(let i = 1; i <= 5; i++) {        
-        //get choices
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-
-        //play a round
-        playRound(humanChoice, computerChoice)
-    }
-
     //find final winner
     let winner;
     if (humanScore === computerScore) {
